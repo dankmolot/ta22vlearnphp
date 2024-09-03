@@ -49,6 +49,7 @@ class Box {
 }
 
 class MetalBox extends Box {
+    use Material;
     public function getHeight2(){
         return $this->height;
     }
@@ -60,6 +61,19 @@ class MetalBox extends Box {
             $length = 0;
         }
         $this->length = $length;
+    }
+}
+class Ball {
+    use Material;
+}
+
+trait Material {
+    private $material; 
+    public function setMaterial($material){
+        $this->material = $material;
+    }
+    public function getMaterial(){
+        return $this->material;
     }
 }
 
@@ -84,3 +98,5 @@ $box->world(1,'asdas', 4);
 // $box2->width = 40;
 // var_dump($box2);
  var_dump($box);
+ $box2 = new Box(1,2,3);
+ var_dump($box2);
