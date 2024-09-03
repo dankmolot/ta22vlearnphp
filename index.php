@@ -1,38 +1,27 @@
 <?php
 
-class ConsoleLogger implements Logger {
-    public function log($message){
-        echo $message . "\n";
+class Box {
+    public static $count;
+    public $material;
+    public static function something(){
+        //var_dump($this->material);
+        var_dump(static::class);
+    }
+    public function hello(){
+        var_dump(self::$count);
     }
 }
 
-class Task {
-    public function work(Logger $logger){
+class MetalBox extends Box {
 
-        for($i=0;$i<10;$i++){
-            $logger->log($i);
-        }
-    }
 }
 
-interface Logger {
-    public function log($message);
-}
+Box::$count = 1;
 
-//
-class NothingLogger implements Logger {
-    public function log($message){
-        
-    }
-}
-
-class FileLogger implements Logger {
-    public function log($message){
-        $file = fopen('./log.log', 'a');
-        fwrite($file, $message . "\n");
-        fclose($file);
-    }
-}
-$logger = new NothingLogger();
-$task = new Task();
-$task->work($logger);
+Box::$count = 2;
+var_dump(Box::$count);
+var_dump(Box::$count);
+MetalBox::something();
+var_dump(Box::class);
+$box = new Box();
+$box->hello();
