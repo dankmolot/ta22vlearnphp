@@ -1,10 +1,10 @@
 <?php 
 $months = ['January', 'February', 'March'];
 $posts = [
-  ['title' => 'post1', 'text' => 'some body 1'],
-  ['title' => 'post2', 'text' => 'some body 2'],
-  ['title' => 'post3', 'text' => 'some body 3'],
-  ['title' => 'post4', 'text' => 'some body 4'],
+  ['title' => 'post5', 'text' => 'some body 5'],
+  ['title' => 'post6', 'text' => 'some body 6'],
+  ['title' => 'post7', 'text' => 'some body 7'],
+  ['title' => 'post8', 'text' => 'some body 8'],
 ]
 ?>
 <?php include 'partials/header.php'; ?>
