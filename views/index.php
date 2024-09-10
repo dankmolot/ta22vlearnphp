@@ -1,12 +1,4 @@
-<?php 
-$months = ['January', 'February', 'March'];
-$posts = [
-  ['title' => 'post5', 'text' => 'some body 5'],
-  ['title' => 'post6', 'text' => 'some body 6'],
-  ['title' => 'post7', 'text' => 'some body 7'],
-  ['title' => 'post8', 'text' => 'some body 8'],
-]
-?>
+
 <?php include 'partials/header.php'; ?>
 
 <main class="container">
