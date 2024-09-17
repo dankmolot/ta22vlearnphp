@@ -13,3 +13,6 @@ function view($viewName, $vars = []){
     extract($vars);
     include __DIR__ . "/views/$viewName.php";
 }
+function redirect($route){
+    header("Location: $route");
+}

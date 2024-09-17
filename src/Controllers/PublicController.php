@@ -1,31 +1,32 @@
-<?php 
+<?php
+
 namespace App\Controllers;
 
-class PublicController {
-    
-    public function index(){
+use App\DB;
+use App\Models\Post;
+use App\Models\User;
+use PDO;
+use PDOException;
+
+class PublicController
+{
+
+    public function index()
+    {
+        $posts = Post::all();
         $months = ['January', 'February', 'March'];
-        $posts = [
-            ['title' => 'post1', 'text' => 'some body 1'],
-            ['title' => 'post2', 'text' => 'some body 2'],
-            ['title' => 'post3', 'text' => 'some body 3'],
-            ['title' => 'post4', 'text' => 'some body 4'],
-        ];
         view('index', compact('months', 'posts'));
         //view('index', ['months' => $months, 'posts' => $posts]);
     }
 
-    public function us(){
+    public function us()
+    {
         $months = ['January', 'February', 'March'];
-        $posts = [
-            ['title' => 'post5', 'text' => 'some body 5'],
-            ['title' => 'post6', 'text' => 'some body 6'],
-            ['title' => 'post7', 'text' => 'some body 7'],
-            ['title' => 'post8', 'text' => 'some body 8'],
-        ];
+        $posts = Post::all();
         view('us', compact('months', 'posts'));
     }
-    public function form() {
+    public function form()
+    {
         dump($_GET, $_POST);
         // $email = '';
         // if(isset($_GET['email'])){
@@ -35,8 +36,8 @@ class PublicController {
         $email = $_GET['email'] ?? $_POST['email'] ?? '';
         view('form', compact('email'));
     }
-    public function answer(){
+    public function answer()
+    {
         dump($_GET, $_POST);
     }
 }
-
