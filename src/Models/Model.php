@@ -14,11 +14,23 @@ class Model {
         $db = new DB();
         return $db->find(static::$table, static::class, $id);
     }
+    public static function where($field, $value){
+        $db = new DB();
+        return $db->where(static::$table, static::class, $field, $value);
+    }
 
     public function save(){
         $db = new DB();
         $fields = get_object_vars($this);
         unset($fields['id']);
-        $db->insert(static::$table, $fields);
+        if($this->id === null){
+            $db->insert(static::$table, $fields);
+        } else {
+            $db->update(static::$table, $fields, $this->id);
+        }
+    }
+    public function delete(){
+        $db = new DB();
+        $db->delete(static::$table, $this->id);
     }
 }

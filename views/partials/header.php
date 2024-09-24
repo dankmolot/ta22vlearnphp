@@ -181,7 +181,12 @@
         <a class="link-secondary" href="#" aria-label="Search">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
         </a>
-        <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+        <?php if(auth()): ?>
+          <a href="/logout"><?=auth()->email?></a>
+        <?php else : ?>
+          <a class="btn btn-sm btn-outline-secondary" href="/register">Sign up</a>
+          <a class="btn btn-sm btn-primary ms-2" href="/login">Login</a>
+        <?php endif ?>
       </div>
     </div>
   </header>

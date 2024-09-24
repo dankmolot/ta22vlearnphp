@@ -12,7 +12,7 @@ class PublicController
 {
 
     public function index()
-    {
+    {   
         $posts = Post::all();
         $months = ['January', 'February', 'March'];
         view('index', compact('months', 'posts'));

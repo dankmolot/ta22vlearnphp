@@ -1,4 +1,7 @@
 <?php
+
+use App\Models\User;
+
 function dump(...$variables){
     echo '<pre>';
     var_dump(...$variables);
@@ -15,4 +18,8 @@ function view($viewName, $vars = []){
 }
 function redirect($route){
     header("Location: $route");
+}
+
+function auth(){
+    return isset($_SESSION['userId']) ? User::find($_SESSION['userId']) : false;
 }
