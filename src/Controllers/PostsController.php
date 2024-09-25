@@ -27,6 +27,9 @@ class PostsController
         redirect('/admin/posts');
     }
     public function show(){
+        $post = Post::find($_GET['id']);
+        $months = ['January', 'February', 'March'];
+        view('posts/show', compact('post', 'months'));
 
     }
     public function edit(){

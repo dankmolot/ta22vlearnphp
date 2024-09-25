@@ -4,7 +4,7 @@
 
 <?php foreach($posts as $post): ?>
     <article class="blog-post">
-    <h2 class="display-5 link-body-emphasis mb-1"><?=$post->title?></h2>
+    <h2 class="display-5 link-body-emphasis mb-1"><a class="link-light link-underline-opacity-0" href="/post?id=<?=$post->id?>"><?=$post->title?></a></h2>
     <p class="blog-post-meta">December 14, 2020 by <a href="#">Chris</a></p>
 
     <p><?=$post->body?></p>

@@ -11,6 +11,7 @@ if (preg_match('/\.(?:png|jpg|jpeg|gif|css|js)$/', $_SERVER["REQUEST_URI"])) {
 
 spl_autoload_register(function ($class){
     $class = substr($class, 4);
+    $class = str_replace('\\', '/', $class);
     require_once __DIR__ . "/../src/$class.php";
 });
 session_start();
